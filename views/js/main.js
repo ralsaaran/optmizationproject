@@ -525,9 +525,10 @@ var movingPizzas1 = document.getElementById("movingPizzas1");
   var cols = 8;
   var s = 256;
   var elem;
+  var screendisplay = Math.ceil(screen.height / s) * 8;
 document.addEventListener('DOMContentLoaded', function() {
 
-  for (var i = 0; i < 200; i++) {
+  for (var i = 0; i < screendisplay ; i++) {
     elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
