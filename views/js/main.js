@@ -480,9 +480,10 @@ console.log("Time to generate pizzas on load: " + timeToGenerate[0].duration + "
 var frame = 0;
 
 // Logs the average amount of time per 10 frames needed to move the sliding background pizzas on scroll.
+var numberOfEntries = times.length;
+var sum = 0;
 function logAverageFrame(times) {   // times is the array of User Timing measurements from updatePositions()
-  var numberOfEntries = times.length;
-  var sum = 0;
+
   for (var i = numberOfEntries - 1; i > numberOfEntries - 11; i--) {
     sum = sum + times[i].duration;
   }
@@ -499,7 +500,6 @@ var phase;
 function updatePositions() {
   frame++;
   window.performance.mark("mark_start_frame");
-
   for (var i = 0; i < items.length; i++) {
     // document.body.scrollTop is no longer supported in Chrome.
     scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
